@@ -4,7 +4,22 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+let timesClicked = 0;
+
+
+
+function addOne() {
+  console.log('Adding one to the timesClicked variable');
+timesClicked++;
+render();
+}
+
+function render() {
+ReactDOM.render(<App timesClicked={timesClicked} onClick={addOne}/>,
+document.getElementById('root'));
+}
+
+render();
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
